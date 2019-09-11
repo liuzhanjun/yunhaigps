@@ -1,8 +1,23 @@
 //app.js
 App({
 
+  globalData:{
+    islogin: false,
+    userInfo: {
+      weName: "",
+      user_id: "",
+      password: "",
+      equipment:
+      {
+        imei: ['12345612336', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222', '2222222222', '2222585858222']
+      },
+      account: "",
+      _unionid: ""
+    }
+  },
 onShow:function(){
   //判断是否登陆
+  var app=this
   wx.getStorage({
 
     key: 'userInfo',
@@ -12,13 +27,13 @@ onShow:function(){
       // 异步接口在success回调才能拿到返回值
 
       var value1 = res.data
-      getApp().globalData.islogin=true
-      getApp().globalData.userInfo=value1
+      app.globalData.islogin=true
+      app.globalData.userInfo=value1
       console.log(value1)
     },
 
     fail: function () {
-      getApp().globalData.islogin = false
+      app.globalData.islogin = false
       console.log('读取key1发生错误')
           //没有登陆
           console.log("\\\\\\\\\\\\\\\\\\\\=====================")
@@ -50,19 +65,7 @@ onShow:function(){
       })
     }
 
-    this.globalData = {
-      islogin:false,
-      userInfo: {
-          weName:"",
-          user_id: "",
-          password: "", 
-          equipment:
-            {
-              imei: [] 
-            },
-          account: "",
-          _unionid:""},
-    }
+    
 
    
 

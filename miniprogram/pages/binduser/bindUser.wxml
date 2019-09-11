@@ -5,4 +5,5 @@
 </i-panel>
 <i-button bind:click="handleClick" type="primary" loading="{{isLoading}}">绑定</i-button>
 <i-toast id="toast" />
+<view class="i-divider-demo-des">注:重复绑定可以修改绑定的账号密码（此处修改的密码不修改云服务系统的密码),且重复绑定会清空所有设备</view>
 

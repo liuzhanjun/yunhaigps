@@ -7,10 +7,13 @@ Page({
    */
   data: {
       avatarUrl: '../../images/user-unlogin.png',
-      info: {},
+      info:{},
       logged: false,
       login_message:"请点击头像登陆...",
       welcome_isShow:'none',
+      devices:[],
+      addVisible1:false,
+      inputValue:"",
       
   },
 
@@ -28,6 +31,42 @@ Page({
       url: '../../pages/binduser/bindUser',
     })
   },
+  //输入imei完毕
+  handleOk:function(e){
+   
+    console.log(this.data.inputValue)
+    
+   this.data.devices.push(this.data.inputValue)
+
+    console.log("添加元素")
+    console.log(this.data.devices)
+    var result=this.data.devices
+    this.setData({
+      addVisible1: false,
+      inputValue: "",
+      devices: result
+    })
+
+  },
+  imeiChange:function(e){
+    this.setData({
+      inputValue: e.detail.detail.value
+    })
+  },
+  //取消输入imei
+  handleClose:function(e){
+    this.setData({
+      addVisible1: false,
+      inputValue:""
+    })
+  },
+  //添加设备
+  addImis:function(e){
+    this.setData({
+      addVisible1:true
+    })
+  }
+  ,
   onGetUserInfo: function (e) {
     if (this.data.logged) 
     { 
@@ -91,6 +130,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var imei = getApp().globalData.userInfo.equipment.imei
+    console.log("======================imei")
+    console.log(imei)
+    this.setData({
+      devices:imei
+    })
+
+
+
+
+
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
@@ -122,7 +172,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      console.log("======================show")
   },
 
   /**

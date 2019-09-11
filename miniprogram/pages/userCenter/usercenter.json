@@ -1,7 +1,19 @@
 {
   "usingComponents": {
-    "i-toast": "../../dist/toast/index"
+    "i-toast": "../../dist/toast/index",
+    "i-button": "../../dist/button/index",
+    "i-cell-group": "../../dist/cell-group/index",
+    "i-cell": "../../dist/cell/index",
+    "i-panel": "../../dist/panel/index",
+    "i-modal": "../../dist/modal/index",
+    "i-input": "../../dist/input/index",
+    "i-action-sheet": "../../dist/action-sheet/index",
+    "i-icon": "../../dist/icon/index",
+    "i-swipeout": "../../dist/swipeout/index"
+  
   },
   "navigationBarTitleText": "个人中心",
-  "navigationBarBackgroundColor": "#F6F6F6"
+  "navigationBarBackgroundColor": "#F6F6F6",
+  
+  "backgroundColor": "#bbbec4"
 }

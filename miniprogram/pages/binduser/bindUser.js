@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-      account_:"1232143143",
-      password_:"3343434",
+      account_:"9999999",
+      password_:"8888888",
       isLoading:false,
   },
 
@@ -36,15 +36,36 @@ Page({
     var gdata = getApp().globalData
     gdata.userInfo.account=this.data.account_
     gdata.userInfo.password=this.data.password_
+    console.log(gdata.userInfo)
+    var info=gdata.userInfo
+    info.equipment={"imei":[]}
+    console.log("info====================")
+    console.log(info)
     //请求云函数绑定用户
     wx.cloud.callFunction({
       name: 'binduser',
-      data: gdata.userInfo,
+      data: info,
       success: res => {
+        console.log("成功==============")
+        this.setData({
+          isLoading:false
+        })
+        $Toast({
+          content: res.result.msg,
+          type: 'success'
+        });
+
       }
       ,
       fail: err=>{
-
+        this.setData({
+          isLoading: false
+        })
+        $Toast({
+          content: res.result.msg,
+          type: 'fail'
+        });
+        console.log("失败==============")
       }
     })
 
