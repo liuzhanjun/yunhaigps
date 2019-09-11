@@ -1,0 +1,4 @@
+/* miniprogram/pages/binduser/bindUser.wxss */
+page{
+  background-color: #f2f2f2;
+}

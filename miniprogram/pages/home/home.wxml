@@ -1,0 +1,33 @@
+<!--miniprogram/pages/home/home.wxml-->
+<swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{loop_img_url}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" mode="aspectFill"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="content_lay">
+      <view class="fun_menu">
+        <image src="../../images/order_query.png" class="fun_menu_img"></image>
+         自助查询
+      </view>
+      <view class="fun_menu">
+      <image src="../../images/order_pay.png" class="fun_menu_img"></image>
+        续费付款
+      </view>
+      <view class="fun_menu">
+      <image src="../../images/order_kef.png" class="fun_menu_img"></image>
+        服务中心
+      </view>
+     
+</view>
+<view class="content_lay_sconde">
+ <view class="fun_menu" bindtap="toUserCenter">
+      <image src="../../images/order_user.png" class="fun_menu_img"></image>
+        个人中心
+      </view>
+
+</view>
+
+

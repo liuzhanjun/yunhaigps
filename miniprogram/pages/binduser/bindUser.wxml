@@ -1,0 +1,8 @@
+<!--miniprogram/pages/binduser/bindUser.wxml-->
+<i-panel title="绑定车联网账号">
+    <i-input bind:change="bindAcccent" value="{{account_}}" title="账号" placeholder="请输入账号" />
+    <i-input bind:change="bindpassword" value="{{password_}}" type="password" title="密码" placeholder="请输入密码" />
+</i-panel>
+<i-button bind:click="handleClick" type="primary" loading="{{isLoading}}">绑定</i-button>
+<i-toast id="toast" />
+

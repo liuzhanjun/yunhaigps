@@ -1,0 +1,29 @@
+<!--miniprogram/pages/userCenter/usercenter.wxml-->
+<view>
+  <view class="head_lay">
+     <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"   
+    ></button>
+    <view class="head_right_text">
+      <text >{{login_message}}</text>
+      <text style="font-size:10pt;display:{{welcome_isShow}}">欢迎使用云海物联网            </text>
+    </view>
+    <button class="bindAccess" bindtap="bindAccess">绑定账号</button>
+
+  </view>
+
+
+  <view class="contentre">
+    
+    <view class="lines">
+      <button>添加设备</button>
+    </view>
+  </view>
+
+
+
+</view>
+<i-toast id="toast" />
