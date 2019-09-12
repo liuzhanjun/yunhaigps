@@ -2,7 +2,8 @@
   "pages": [
     "pages/home/home",
     "pages/userCenter/usercenter",
-    "pages/binduser/bindUser"
+    "pages/binduser/bindUser",
+    "pages/index/index"
     
   ],
   "window": {

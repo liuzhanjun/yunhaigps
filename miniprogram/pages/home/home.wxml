@@ -8,7 +8,7 @@
   </block>
 </swiper>
 <view class="content_lay">
-      <view class="fun_menu">
+      <view class="fun_menu" bindtap="toQuery">
         <image src="../../images/order_query.png" class="fun_menu_img"></image>
          自助查询
       </view>

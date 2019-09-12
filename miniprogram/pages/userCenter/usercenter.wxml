@@ -1,14 +1,9 @@
 <!--miniprogram/pages/userCenter/usercenter.wxml-->
 <view>
   <view class="head_lay">
-     <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"   
-    ></button>
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})"></button>
     <view class="head_right_text">
-      <text >{{login_message}}</text>
+      <text>{{login_message}}</text>
       <text style="font-size:10pt;display:{{welcome_isShow}}">欢迎使用云海物联网            </text>
     </view>
     <button class="bindAccess" bindtap="bindAccess">绑定账号</button>
@@ -17,38 +12,46 @@
 
 
   <view class="contentre">
-    
+
     <view class="add_lay">
       <i-button bind:click="addImis">添加设备imsi</i-button>
-      <i-cell-group >
-        <block wx:for="{{devices}}">
-         <!-- <i-cell title="设备{{index}}：{{item}}"></i-cell> -->
-         <i-swipeout  i-class="i-swipeout-demo-item" operateWidth="{{60}}" unclosable="{{true}}" toggle="{{toggle}}">
-        <view slot="content">
-              <view class="i-swipeout-image">
+      <i-panel title="设备列表：">
+        <i-cell-group>
+          <block wx:for="{{devices}}">
+            <!-- <i-cell title="设备{{index}}：{{item}}"></i-cell> -->
+            <i-action-sheet visible="{{ delete_visible }}" data-albumlist="{{index}}" actions="{{ delete_actions }}" show-cancel bind:cancel="delete_cancel" bind:click="delete_yes" mask-closable="{{ false }}">
+              <view slot="header" style="padding: 16px">
+                <view style="color: #444;font-size: 16px">确定吗？</view>
+                <text>删除后下拉刷新同步到后台</text>
+              </view>
+            </i-action-sheet>
+            <i-swipeout i-class="i-swipeout-demo-item" operateWidth="{{60}}" unclosable="{{true}}" toggle="{{toggle}}">
+              <view slot="content">
+                <view class="i-swipeout-image">
                   <i-icon size="20" color="#FFFFFF" type="businesscard_fill"></i-icon>
-              </view>
-              <view class="i-swipeout-des">
-                  <!-- <view class="i-swipeout-des-h2">第七个小矮人</view> -->
+                </view>
+                <view class="i-swipeout-des">
                   <view class="i-swipeout-des-detail">{{item}}</view>
+                </view>
+
               </view>
-        </view>
-        <view slot="button" class="i-swipeout-demo-button-group" style="background:#2db7f5;">
-          
-            <view class="i-swipeout-demo-button" style="width:60px" bindtap="actionsTap">
-                <i-icon size="32" type="delete_fill"></i-icon>
-            </view>
-        </view>
-    </i-swipeout>
-         </block>
-    </i-cell-group>
+              <view slot="button" class="i-swipeout-demo-button-group" style="background:#2db7f5;">
+
+                <view class="i-swipeout-demo-button" style="width:60px" data-index="{{index}}" bindtap="deleteTap">
+                  <i-icon size="32" type="delete_fill"></i-icon>
+                </view>
+              </view>
+            </i-swipeout>
+          </block>
+        </i-cell-group>
+      </i-panel>
     </view>
   </view>
 </view>
 
-<i-modal  visible="{{ addVisible1 }}" bind:ok="handleOk" bind:cancel="handleClose">
-        <i-panel title="Imei">
-            <i-input bind:change="imeiChange"type="number" value="{{ inputValue }}" placeholder="请输入imei" />
-        </i-panel>
+<i-modal visible="{{ addVisible1 }}" bind:ok="handleOk" bind:cancel="handleClose">
+  <i-panel title="Imei">
+    <i-input bind:change="imeiChange" type="number" value="{{ inputValue }}" placeholder="请输入imei" />
+  </i-panel>
 </i-modal>
 <i-toast id="toast" />

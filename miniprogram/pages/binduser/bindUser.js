@@ -10,6 +10,7 @@ Page({
       password_:"8888888",
       isLoading:false,
   },
+  
 
   bindAcccent:function(e){
       this.setData({
@@ -32,7 +33,7 @@ Page({
       return
     }
     this.setData({isLoading:true})
-    console.log(this.data.account_ + "=======================" + this.data.password_)
+    // console.log(this.data.account_ + "=======================" + this.data.password_)
     var gdata = getApp().globalData
     gdata.userInfo.account=this.data.account_
     gdata.userInfo.password=this.data.password_
@@ -46,6 +47,16 @@ Page({
       name: 'binduser',
       data: info,
       success: res => {
+        gdata.isbind=true
+        wx.setStorage({
+          key: 'isbind',
+          data: true,
+        })
+        //重新保存用户
+        wx.setStorage({
+          key: 'userInfo',
+          data: info,
+        })
         console.log("成功==============")
         this.setData({
           isLoading:false
