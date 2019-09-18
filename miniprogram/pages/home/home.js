@@ -7,7 +7,8 @@ Page({
     //轮播图片
     loop_img_url: ['https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
       'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'],
+      'cloud://yunhaiwulianwnag-db-buefj.7975-yunhaiwulianwnag-db-buefj/lufei.jpg'],
+      // 'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'],
     indicatorDots: true,
     autoplay: true,
     interval: 2000,
@@ -23,7 +24,17 @@ Page({
     
 
   },
-
+  toServicenter:function(e) {
+    wx.navigateTo({
+      url: '../../pages/servicenter/servicenter',
+    })
+  },
+  //跳转到支付页面
+  toPayPage:function(e){
+    wx.navigateTo({
+      url: '../../pages/paylist/paylist',
+    })
+  },
   //跳转到个人中心
   toUserCenter:function(e){
     wx.navigateTo({
@@ -31,6 +42,7 @@ Page({
     })
 
   },
+  //跳转自主查询页面
   toQuery:function(e){
     wx.navigateTo({
       url: '../../pages/index/index',

@@ -16,6 +16,15 @@ App({
       _unionid: ""
     }
   },
+  //更新本地用户信息
+  updateUserInfo:function(){
+    console.log("更新本地用户信息")
+    var userinfo_ = this.globalData.userInfo
+    wx.setStorage({
+      key: 'userInfo',
+      data: userinfo_,
+    })
+  },
 onShow:function(){
   //判断是否登陆
   var app=this
@@ -44,6 +53,7 @@ onShow:function(){
     }
 
   })
+
 
   wx.getStorage({
 
@@ -80,7 +90,7 @@ onShow:function(){
         //   env 参数决定接下来小程序发起的云开发调用（wx.cloud.xxx）会默认请求到哪个云环境的资源
         //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
         //   如不填则使用默认环境（第一个创建的环境）
-        env: 'liuzhanjun-yun-do44l',
+        env: 'yunhaiwulianwnag-db-buefj',
         traceUser: true,
       })
     }

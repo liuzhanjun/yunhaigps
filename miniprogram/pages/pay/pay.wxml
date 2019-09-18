@@ -1,0 +1,33 @@
+
+<i-grid>
+  <i-row>
+    <i-grid-item>
+         <button class="pay_money_den">10元</button>
+    </i-grid-item>
+    <i-grid-item>
+     <button class="pay_money_den">20元</button>
+    </i-grid-item>
+    <i-grid-item>
+     <button class="pay_money_den">30元</button>
+    </i-grid-item>
+  </i-row>
+  <i-row>
+    <i-grid-item>
+     <button class="pay_money_den">40元</button>
+    </i-grid-item>
+    <i-grid-item>
+     <button class="pay_money_den">50元</button>
+    </i-grid-item>
+    <i-grid-item>
+     <button class="pay_money_den">100元</button>
+    </i-grid-item>
+  </i-row>
+  <i-row>
+    <i-grid-item>
+     <button class="pay_money_den">200元</button>
+    </i-grid-item>
+    <i-grid-item>
+     <button class="pay_money_den">300元</button>
+    </i-grid-item>
+  </i-row>
+</i-grid>

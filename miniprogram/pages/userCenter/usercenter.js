@@ -2,7 +2,8 @@
 const {
   $Toast
 } = require('../../dist/base/index');
-var appgloba = getApp().globalData
+var app = getApp()
+var appgloba = app.globalData
 var delete_index=-1
 Page({
 
@@ -62,7 +63,7 @@ Page({
       toggle: this.data.toggle ? false : true
     })
    
-   console.log(getApp().globalData.userInfo)
+    wx.startPullDownRefresh()
   },
   //调起删除imei菜单
   deleteTap: function(e) {
@@ -86,7 +87,7 @@ Page({
       inputValue: "",
       devices: result
     })
-
+    wx.startPullDownRefresh()
   },
   imeiChange: function(e) {
     this.setData({
@@ -259,6 +260,8 @@ Page({
           content: res.result.msg,
           type: 'success'
         });
+        app.updateUserInfo()
+
       },
       fail:err=>{
         wx.hideNavigationBarLoading() //完成停止加载

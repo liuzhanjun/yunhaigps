@@ -1,22 +1,21 @@
-// miniprogram/pages/index/index.js
+// miniprogram/pages/servicenter/servicenter.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imei:""
+
   },
 
+  contactBind:function(e){
+    console.log(e)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      imei:options.imei
-    })
-    console.log(this.data.imei)
-   
+
   },
 
   /**

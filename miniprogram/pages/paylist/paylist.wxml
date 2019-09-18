@@ -1,0 +1,25 @@
+<!--miniprogram/pages/pay/pay.wxml-->
+<i-alert style="display:{{showwarning}}" type="warning" show-icon desc>
+    Warning
+    <view slot="desc">请在个人空间添加设备</view>
+</i-alert>
+<i-panel title="设备列表" style="display:{{showList}}">
+  <i-cell-group>
+    <block wx:for="{{devices}}">
+      <view class="content">
+        <view class="i-swipeout-image">
+          <i-icon size="20" color="#FFFFFF" type="businesscard_fill"></i-icon>
+        </view>
+  
+        
+        <view class="i-swipeout-des">
+        
+          <i-cell class="i-swipeout-des-detail" title="{{item}}" is-link url="../../pages/pay/pay?imei={{item}}"></i-cell>
+        </view>
+
+      </view>
+
+
+    </block>
+  </i-cell-group>
+</i-panel>

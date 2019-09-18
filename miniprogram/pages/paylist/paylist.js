@@ -1,22 +1,34 @@
-// miniprogram/pages/index/index.js
+// miniprogram/paylist/paylist.js
+var app = getApp()
+var appgloba = app.globalData
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imei:""
+    devices:[],
+    showwarning:"none",
+    showList:"none"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      imei:options.imei
-    })
-    console.log(this.data.imei)
-   
+    var imei = appgloba.userInfo.equipment.imei
+    if (imei.length==0){
+      this.setData({
+        showwarning:"inline",
+        showList:"none"
+      })
+    }else{
+        this.setData({
+          devices: imei,
+          showwarning: "none",
+          showList: "inline"
+        })
+    }
   },
 
   /**

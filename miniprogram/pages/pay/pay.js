@@ -1,4 +1,6 @@
-// miniprogram/pages/index/index.js
+// miniprogram/pages/pay/pay.js
+var app=getApp()
+var appgloba = app.globalData
 Page({
 
   /**
@@ -13,10 +15,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      imei:options.imei
+      imei: options.imei
     })
     console.log(this.data.imei)
-   
   },
 
   /**

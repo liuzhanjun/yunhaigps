@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-      account_:"9999999",
-      password_:"8888888",
+      account_:"",
+      password_:"",
       isLoading:false,
   },
   
@@ -65,6 +65,10 @@ Page({
           content: res.result.msg,
           type: 'success'
         });
+
+        wx.redirectTo({
+          url: '../../pages/userCenter/usercenter',
+        })
 
       }
       ,

@@ -1,0 +1,6 @@
+<!--miniprogram/pages/servicenter/servicenter.wxml-->
+<view>
+<i-button open-type="feedback" type="ghost">反馈/留言</i-button>
+<i-button open-type="contact" bindcontact="contactBind" type="ghost">进入客服会话</i-button>
+</view>
+
